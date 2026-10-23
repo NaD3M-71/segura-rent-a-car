@@ -1,0 +1,116 @@
+@import 'tailwindcss';
+
+@theme {
+  --color-ink: #0b0b0d;
+  --color-surface: #141417;
+  --color-surface-2: #1c1c21;
+  --color-line: #2c2c34;
+  --color-fog: #f4f1ea;
+  --color-mute: #a3a3ad;
+  --color-brand: #ee3a3f; /* rojo del logo */
+  --color-brand-dark: #c9262c;
+  --color-taxi: #ffc400; /* amarillo de taxi */
+
+  --font-display: 'Bricolage Grotesque Variable', ui-sans-serif, system-ui, sans-serif;
+  --font-sans: 'DM Sans Variable', ui-sans-serif, system-ui, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+  background: var(--color-ink);
+}
+
+body {
+  background: var(--color-ink);
+  color: var(--color-fog);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-display);
+  letter-spacing: -0.02em;
+}
+
+/* Entrada suave de cada pagina (se siente como la continuacion del click en la portada) */
+@keyframes page-in {
+  from {
+    opacity: 0;
+    transform: scale(1.015);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.page-in {
+  animation: page-in 0.6s ease-out both;
+}
+
+/* Aparicion al hacer scroll, solo CSS. Si el navegador no lo soporta, el contenido se ve igual. */
+@keyframes reveal {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@supports (animation-timeline: view()) {
+  .reveal {
+    animation: reveal linear both;
+    animation-timeline: view();
+    animation-range: entry 0% entry 35%;
+  }
+}
+
+/* Pulso sutil del boton flotante de WhatsApp */
+@keyframes ping-soft {
+  0% {
+    box-shadow: 0 0 0 0 rgb(37 211 102 / 0.5);
+  }
+  70%,
+  100% {
+    box-shadow: 0 0 0 16px rgb(37 211 102 / 0);
+  }
+}
+.ping-soft {
+  animation: ping-soft 2.4s ease-out infinite;
+}
+
+/* Mapa: tiles de OpenStreetMap con tonos oscuros para combinar con el sitio */
+.map-dark .leaflet-container {
+  background: var(--color-surface-2);
+  font-family: var(--font-sans);
+}
+.map-dark .leaflet-tile-pane {
+  filter: invert(1) hue-rotate(180deg) brightness(0.95) contrast(0.9) saturate(0.7);
+}
+
+input[type='date'] {
+  color-scheme: dark;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-taxi);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .page-in,
+  .reveal,
+  .ping-soft {
+    animation: none !important;
+  }
+  * {
+    transition-duration: 0.01ms !important;
+  }
+}
