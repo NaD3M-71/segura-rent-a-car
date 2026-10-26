@@ -12,7 +12,7 @@ import { SITE_URL, CITY, REGION, taxi, waLink } from '@/lib/site'
 export const metadata: Metadata = {
   title: 'Taxi en Esquel',
   description:
-    'Taxi Segura: traslados dentro y fuera de Esquel, las 24 horas. Te esperamos en el aeropuerto de Esquel y te llevamos a tu residencia u hotel. Pedí tu taxi por WhatsApp.',
+    'Taxi Segura, 15 años de trayectoria en Esquel: atención inmediata de 6 a 22 hs y las 24 horas con reserva. Te esperamos en el aeropuerto y te llevamos a tu residencia u hotel. Pedí tu taxi por WhatsApp.',
   alternates: { canonical: '/taxi/' },
   openGraph: { url: '/taxi/', title: 'Taxi en Esquel | Taxi Segura' },
 }
@@ -37,8 +37,13 @@ const services = [
   },
   {
     icon: ClockIcon,
-    title: 'Atención las 24 horas',
-    text: 'Pedí tu taxi de día o de noche, todos los días del año.',
+    title: 'Atención inmediata de 6 a 22 hs',
+    text: 'Pedí tu taxi dentro de este horario y salimos a buscarte en el momento.',
+  },
+  {
+    icon: ClockIcon,
+    title: '24 horas con reserva',
+    text: 'Podés pedir cualquier horario, de día o de noche, siempre que lo reserves con anticipación.',
   },
 ]
 
@@ -61,12 +66,12 @@ export default function TaxiPage() {
           url,
           image: `${SITE_URL}/img/og.jpg`,
           telephone: taxi.phone,
-          description: 'Servicio de taxi en Esquel, Chubut, las 24 horas: traslados dentro y fuera de la ciudad y servicio de aeropuerto.',
+          description: 'Servicio de taxi en Esquel, Chubut, con 15 años de trayectoria: atención inmediata de 6 a 22 hs y las 24 horas con reserva. Traslados dentro y fuera de la ciudad y servicio de aeropuerto.',
           openingHoursSpecification: {
             '@type': 'OpeningHoursSpecification',
             dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
-            opens: '00:00',
-            closes: '23:59',
+            opens: '06:00',
+            closes: '22:00',
           },
           address: {
             '@type': 'PostalAddress',
@@ -98,14 +103,14 @@ export default function TaxiPage() {
             <div>
               <p className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-black/30 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.18em] text-white/90 backdrop-blur">
                 <ClockIcon className="h-4 w-4 text-taxi" />
-                Atención las 24 horas
+                15 años de trayectoria
               </p>
               <h1 className="mt-6 font-display text-5xl font-extrabold leading-[0.95] sm:text-6xl lg:text-7xl">
                 Taxi <span className="text-taxi">en Esquel</span>
               </h1>
               <p className="mt-6 max-w-xl text-lg text-fog/85">
-                Traslados dentro y fuera de Esquel, las 24 horas. Te esperamos en el aeropuerto y te llevamos a tu
-                residencia u hotel.
+                Traslados dentro y fuera de Esquel. Atención inmediata de 6 a 22 hs y las 24 horas con reserva. Te
+                esperamos en el aeropuerto y te llevamos a tu residencia u hotel.
               </p>
               <div className="mt-8 flex flex-wrap gap-3">
                 <a
@@ -155,7 +160,7 @@ export default function TaxiPage() {
             <p className="text-xs font-semibold uppercase tracking-[0.2em] text-taxi">Servicios</p>
             <h2 className="mt-3 font-display text-4xl font-extrabold sm:text-5xl">Moverte por Esquel, simple</h2>
           </div>
-          <div className="mt-12 grid gap-5 md:grid-cols-3">
+          <div className="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
             {services.map((s) => (
               <article
                 key={s.title}
@@ -262,7 +267,7 @@ export default function TaxiPage() {
           <div className="mx-auto max-w-3xl px-4 py-20 text-center sm:px-6 md:py-24">
             <h2 className="reveal font-display text-4xl font-extrabold sm:text-5xl">Pedí tu taxi ahora</h2>
             <p className="reveal mt-4 text-fog/80">
-              Escribinos por WhatsApp o llamanos al <strong className="text-white">{taxi.phone}</strong>, a cualquier hora.
+              Escribinos por WhatsApp o llamanos al <strong className="text-white">{taxi.phone}</strong>. Atención inmediata de 6 a 22 hs; fuera de ese horario, reservá con anticipación.
             </p>
             <div className="reveal mt-8 flex flex-wrap justify-center gap-3">
               <a

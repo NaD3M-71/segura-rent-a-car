@@ -107,7 +107,7 @@ export default function Chooser() {
             Taxi Segura
           </h2>
           <p className="mt-3 max-w-sm text-sm text-white/85 md:text-base">
-            Traslados dentro y fuera de Esquel, las 24 horas. Te esperamos en el aeropuerto.
+            15 años de trayectoria. Atención de 6 a 22 hs y 24 horas con reserva. Te esperamos en el aeropuerto.
           </p>
           <span className="mt-5 inline-flex items-center gap-2 rounded-full bg-taxi px-5 py-2.5 text-sm font-semibold text-black transition-[filter] group-hover:brightness-110">
             Pedir un taxi

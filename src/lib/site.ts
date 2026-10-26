@@ -22,7 +22,7 @@ export const taxi = {
   name: 'Taxi Segura',
   phone: '+54 9 2945 419923',
   whatsapp: '5492945419923',
-  hours: '24 horas',
+  hours: '6:00 a 22:00 hs (24 horas con reserva)',
 }
 
 export function waLink(number: string, text: string) {
